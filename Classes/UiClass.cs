@@ -13,7 +13,7 @@ namespace H1_Webshop.Classes
         public MenuClass Menu { get; set; }
         public ProductClass Product { get; set; }
         public DataService Data { get; set; }
-        public PaymentForm Payment { get; set; } = new PaymentForm();
+        public PaymentForm Payment { get; set; }
         public ViewModels CurrentViewModel { get; set; }
 
 

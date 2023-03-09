@@ -1,4 +1,5 @@
 ﻿using H1_Webshop.Classes;
+using H1_Webshop.Forms;
 using H1_Webshop.Services;
 
 namespace H1_Webshop
@@ -10,6 +11,8 @@ namespace H1_Webshop
         static DataService Data = new DataService();
         static ProductClass Product = new ProductClass();
         static BasketClass Basket = new BasketClass();
+
+        static PaymentForm Paymentform = new PaymentForm();
 
         static void Main(string[] args)
         {
@@ -34,9 +37,11 @@ namespace H1_Webshop
             Ui.Menu = Menu;
             Ui.Product = Product;
             Ui.Data = Data;
+            Ui.Payment = Paymentform;
 
             Product.Data = Data;
 
+            Paymentform.Ui = Ui;
         }
     }
 }
