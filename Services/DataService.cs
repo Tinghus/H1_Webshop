@@ -16,7 +16,9 @@ namespace H1_Webshop.Services
 
         public List<ProductData> Products { get; set; } = new List<ProductData>();
         public List<GenreData> Genres { get; set; } = new List<GenreData>();
+        public AccountService Account { get; set; } = new AccountService();
         public BasketClass Basket { get; set; } = new BasketClass();
+        public List<OrderService.OrderData> Orders { get; set; } = new List<OrderService.OrderData>();
 
         public DataService()
         {

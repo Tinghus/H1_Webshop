@@ -180,7 +180,7 @@ namespace H1_Webshop.Classes
                 "Title".PadRight(40) +
                 "Author".PadRight(20) +
                 "Price".PadRight(12) +
-                "In Basket".PadRight(11) + 
+                "In Basket".PadRight(11) +
                 "ISBN".PadRight(16)
                 );
         }
@@ -271,6 +271,7 @@ namespace H1_Webshop.Classes
             Order,
             AccountInfo,
             Payments,
+            OrderConfirmation,
         }
 
     }

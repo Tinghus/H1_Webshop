@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using H1_Webshop.Classes;
+using H1_Webshop.Services;
 
 namespace H1_Webshop.Forms
 {
     public class PaymentForm
     {
         SelectForm selectForm = new SelectForm();
+        public OrderService Order { get; set; }
+
         public UiClass Ui { get; set; }
 
         public void ShowForm(int formPosTop)
@@ -117,6 +120,7 @@ namespace H1_Webshop.Forms
                 {
                     case "Buy items":
                         leavePaymentForm = true;
+                        Ui.CurrentViewModel = UiClass.ViewModels.OrderConfirmation;
                         break;
 
                     case "Back to basket":

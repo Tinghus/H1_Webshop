@@ -11,8 +11,9 @@ namespace H1_Webshop
         static DataService Data = new DataService();
         static ProductClass Product = new ProductClass();
         static BasketClass Basket = new BasketClass();
-
+        static OrderService Order = new OrderService();
         static PaymentForm Paymentform = new PaymentForm();
+        static AccountService Account = new AccountService();
 
         static void Main(string[] args)
         {
@@ -43,8 +44,10 @@ namespace H1_Webshop
             Product.Data = Data;
 
             Paymentform.Ui = Ui;
+            Paymentform.Order = Order;
 
-            // Basket.Data = Data;
+            Order.Data = Data;
+
         }
     }
 }
