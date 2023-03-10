@@ -38,10 +38,13 @@ namespace H1_Webshop
             Ui.Product = Product;
             Ui.Data = Data;
             Ui.Payment = Paymentform;
+            Ui.Basket = Basket;
 
             Product.Data = Data;
 
             Paymentform.Ui = Ui;
+
+            // Basket.Data = Data;
         }
     }
 }

@@ -18,8 +18,6 @@ namespace H1_Webshop.Services
         public List<GenreData> Genres { get; set; } = new List<GenreData>();
         public BasketClass Basket { get; set; } = new BasketClass();
 
-        // public List<ProductData> Basket { get; set; } = new List<ProductData>();
-
         public DataService()
         {
             LoadData();

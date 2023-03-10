@@ -14,6 +14,7 @@ namespace H1_Webshop.Classes
         public ProductClass Product { get; set; }
         public DataService Data { get; set; }
         public PaymentForm Payment { get; set; }
+        public BasketClass Basket { get; set; }
         public ViewModels CurrentViewModel { get; set; }
 
 
@@ -31,9 +32,13 @@ namespace H1_Webshop.Classes
             {
                 Console.CursorLeft = cursorPosLeft;
 
-                if (i == activeItem)
+                if (i == activeItem && !Menu.SubMenuIsActive)
                 {
                     ApplyEffect(menuItems[i].Text, Effects.ActiveMenuItem);
+                }
+                else if (i == activeItem && Menu.SubMenuIsActive)
+                {
+                    ApplyEffect(menuItems[i].Text, Effects.ActiveSubMenuItem);
                 }
                 else
                 {
@@ -67,6 +72,11 @@ namespace H1_Webshop.Classes
                 case Effects.ActiveMenuItem:
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Blue;
+                    break;
+
+                case Effects.ActiveSubMenuItem:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkGray;
                     break;
             }
 
@@ -123,6 +133,7 @@ namespace H1_Webshop.Classes
                     LimitStringLength(products[i].Title, 38).PadRight(40) +
                     LimitStringLength(products[i].Author, 18).PadRight(20) +
                     (products[i].Price.ToString("0.00").PadRight(5) + " USD").PadRight(12) +
+                    Data.Basket.GetProductCountFromBasket(products[i]).ToString().PadRight(11) +
                     products[i].ISBN.PadRight(16);
 
                 if (Menu.HoveredSubMenu - 1 == i)
@@ -169,6 +180,7 @@ namespace H1_Webshop.Classes
                 "Title".PadRight(40) +
                 "Author".PadRight(20) +
                 "Price".PadRight(12) +
+                "In Basket".PadRight(11) + 
                 "ISBN".PadRight(16)
                 );
         }
@@ -178,6 +190,7 @@ namespace H1_Webshop.Classes
             if (Data.Basket.Products.Count == 0)
             {
                 Console.WriteLine("Basket is empty");
+                Menu.SubMenuIsActive = false;
                 return;
             }
 
@@ -246,6 +259,7 @@ namespace H1_Webshop.Classes
         public enum Effects
         {
             ActiveMenuItem,
+            ActiveSubMenuItem,
         }
 
 

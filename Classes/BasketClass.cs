@@ -1,4 +1,5 @@
-﻿using System;
+﻿using H1_Webshop.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,10 +54,12 @@ namespace H1_Webshop.Classes
         public double GetBasketValue()
         {
             return Products.Sum(b => b.Product.Price * b.ProductCount);
-        }
+        }      
 
         public int GetProductCountFromBasket(ProductClass.ProductData product)
         {
+            int test = Products.Count;
+
             BasketData? basketData = Products.FirstOrDefault(b => b.Product == product);
             return basketData?.ProductCount ?? 0;
         }
