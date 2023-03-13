@@ -60,6 +60,7 @@ namespace H1_Webshop.Classes
             {
                 Console.Write("-");
             }
+
         }
 
         public void ApplyEffect(string output, Effects effect, bool newLine = false)

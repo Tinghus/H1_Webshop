@@ -94,6 +94,10 @@ namespace H1_Webshop.Classes
                 case ConsoleKey.Subtract:
                     UpdateBasketContent(-1);
                     break;
+
+                case ConsoleKey.Backspace:
+                    UpdateBasketContent(-1);
+                    break;
             }
         }
 
